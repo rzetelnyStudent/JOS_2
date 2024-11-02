@@ -6,9 +6,9 @@ module PC (
 );
 
     // Initialize the counter to 0
-    //initial begin
-    //    counter = 5'b00000;
-    //end
+    initial begin
+        counter = 5'b00000;
+    end
 
     // Always block triggered on the rising edge of the clock
     always @(posedge CLK) begin

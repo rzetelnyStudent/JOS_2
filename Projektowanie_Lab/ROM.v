@@ -6,7 +6,7 @@ module ROM (input [4:0] address, output [(`INSTRUCTION_WIDTH - 1):0] data);
 
     initial begin
         //`ASM(`ADD, `R3);
-        memory[0]  = `ASM(4'b0000, 2'b00);
+        memory[0]  = `ASM(`ADD, `R3);
         memory[1]  = `INSTRUCTION_WIDTH'b000010;
         memory[2]  = `INSTRUCTION_WIDTH'b000011;
         memory[3]  = `INSTRUCTION_WIDTH'b000100;

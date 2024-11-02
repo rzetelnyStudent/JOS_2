@@ -17,3 +17,4 @@
 `define R3 2'd3
 
 `define ASM(opcode, reg_addr) {opcode, reg_addr}
+//`define ASM(opcode, reg_addr) {opcode[(`INSTRUCTION_WIDTH - 1):0], reg_addr[(`REG_ADDR_WIDTH - 1):0]}

@@ -5,14 +5,14 @@ module ROM (input [4:0] address, output [(`INSTRUCTION_WIDTH - 1):0] data);
     reg [(`INSTRUCTION_WIDTH - 1):0] memory [31:0];
 
     initial begin
-        memory[0]  = `ASM(`ADD, `R3);
-        memory[1]  = `ASM(`ADD, `R3);
-        memory[2]  = `ASM(`NOP, `R0);
-        memory[3]  = `ASM(`NOP, `R0);
-        memory[4]  = `ASM(`NOP, `R0);
+        memory[0]  = `ASM(`NOP, `R0);     // First record should be skipped
+        memory[1]  = `ASM(`LD, `R3);
+        memory[2]  = `ASM(`ST, `R2);
+        memory[3]  = `ASM(`ADD, `R2);
+        memory[4]  = `ASM(`SUB, `R3);
         memory[5]  = `ASM(`NOP, `R0);
-        memory[6]  = `ASM(`NOP, `R0);
-        memory[7]  = `ASM(`NOP, `R0);
+        memory[6]  = `ASM(`XOR, `R3);
+        memory[7]  = `ASM(`ADD, `R2);
         memory[8]  = `ASM(`NOP, `R0);
         memory[9]  = `ASM(`NOP, `R0);
         memory[10] = `ASM(`NOP, `R0);

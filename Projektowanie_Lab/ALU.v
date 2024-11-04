@@ -8,7 +8,7 @@ module ALU(
         acc = 8'b0;
     end
 
-    always @(posedge clk) begin
+    always @(negedge clk) begin
         if (alu_ce) begin
             case (opcode)
                 `ADD: acc = acc + register;

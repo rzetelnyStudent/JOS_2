@@ -34,19 +34,22 @@ initial begin
     $display("Starting simulation");
 end
 
+task CLK_CYCLE;
+    begin
+        #10 clk = ~clk;
+    end
+endtask
+
+integer i;
 // Addition test
 initial begin
     clk = 1'b0;
+
     r3 = 8'b00000001;
-    #10;
-    clk = ~clk;
-    #10;
-    clk = ~clk;
-    #10;
-    clk = ~clk;
-    #10;
-    clk = ~clk;
-    #10;
+
+    for (i = 0; i < 32; i = i + 1) begin
+        CLK_CYCLE;
+    end
     //assert
     $finish;
 end

@@ -8,9 +8,10 @@ module Processor_tb;
 reg clk;
 reg [7:0] r3;
 wire [7:0] acc;
+wire cy;
 
 // Instantiate the Processor module
-Processor processor(.clk(clk), .r3(r3), .acc(acc));
+Processor processor(.clk(clk), .r3(r3), .acc(acc), .cy(cy));
 
 // initial	begin
 // 	clk = 1'b0;
@@ -45,7 +46,7 @@ integer i;
 initial begin
     clk = 1'b0;
 
-    r3 = 8'b00000001;
+    r3 = 8'd6;
 
     for (i = 0; i < 32; i = i + 1) begin
         CLK_CYCLE;

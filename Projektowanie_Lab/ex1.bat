@@ -1,4 +1,4 @@
-del -f Processor_tb
+del -f Processor_tb.vvp
 del -f Processor_tb.vcd
 
 

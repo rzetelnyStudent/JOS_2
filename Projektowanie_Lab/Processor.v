@@ -1,6 +1,6 @@
 `include "OpCodes.v"
 
-module Processor(input clk, input [7:0] r3, output [7:0] acc);
+module Processor(input clk, input [7:0] r3, output [7:0] acc, output cy);
     
     wire [4:0] program_counter;
     wire [(`INSTRUCTION_WIDTH - 1):0] instruction;
@@ -13,7 +13,7 @@ module Processor(input clk, input [7:0] r3, output [7:0] acc);
     ROM rom(.address(program_counter), .data(instruction));
     ID id(.instruction(instruction), .opcode(opcode), .reg_addr(reg_addr), .st_ce(st_ce), .ld_ce(ld_ce), .cy_ce(cy_ce), .acc_ce(acc_ce));
     RF rf(.clk(clk), .ld_ce(ld_ce), .st_ce(st_ce), .acc(acc), .debug_reg(r3), .addr(reg_addr), .data(register));
-    ALU alu(.clk(clk), .alu_ce(acc_ce), .cy_ce(cy_ce), .opcode(opcode), .register(register), .acc(acc));
+    ALU alu(.clk(clk), .alu_ce(acc_ce), .cy_ce(cy_ce), .opcode(opcode), .register(register), .acc(acc), .cy(cy));
 
     always @(posedge clk) begin
     end

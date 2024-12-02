@@ -27,11 +27,6 @@ Processor processor(.clk(clk), .r3(r3), .acc(acc), .cy(cy));
 initial begin
     $dumpfile("Processor_tb.vcd");
     $dumpvars(0, Processor_tb);
-    // $dumpvars(0, rom);
-    // $dumpvars(0, pc);
-    // $dumpvars(0, id);
-    // $dumpvars(0, rf);
-    // $dumpvars(0, alu);
     $display("Starting simulation");
 end
 

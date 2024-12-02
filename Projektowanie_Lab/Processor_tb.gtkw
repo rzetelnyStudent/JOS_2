@@ -1,24 +1,23 @@
 [*]
 [*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
-[*] Sat Nov 16 17:44:48 2024
+[*] Mon Dec 02 09:58:14 2024
 [*]
 [dumpfile] "C:\Users\alert\repos\JOS_2\Projektowanie_Lab\Processor_tb.vcd"
-[dumpfile_mtime] "Sat Nov 16 17:44:05 2024"
-[dumpfile_size] 3988
+[dumpfile_mtime] "Mon Dec 02 09:57:30 2024"
+[dumpfile_size] 3998
 [savefile] "C:\Users\alert\repos\JOS_2\Projektowanie_Lab\Processor_tb.gtkw"
-[timestart] 7
+[timestart] 90
 [size] 1280 657
 [pos] -1 -1
-*-3.921819 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-4.921819 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] Processor_tb.
 [treeopen] Processor_tb.processor.
-[sst_width] 64
+[sst_width] 45
 [signals_width] 218
 [sst_expanded] 0
 [sst_vpaned_height] 173
 @22
 Processor_tb.processor.instruction[5:0]
-@23
 Processor_tb.processor.r3[7:0]
 @28
 Processor_tb.processor.clk
@@ -40,6 +39,9 @@ Processor_tb.processor.ld_ce
 Processor_tb.processor.acc_ce
 @22
 Processor_tb.processor.acc[7:0]
+Processor_tb.processor.alu.acc_temp[7:0]
+@29
+Processor_tb.processor.alu.cy_temp
 @28
 Processor_tb.processor.cy
 [pattern_trace] 1

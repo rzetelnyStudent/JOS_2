@@ -12,7 +12,7 @@ module ROM (input [4:0] address, output [(`INSTRUCTION_WIDTH - 1):0] data);
         memory[4]  = `ASM(`SUB, `R3);
         memory[5]  = `ASM(`NOP, `R0);
         memory[6]  = `ASM(`XOR, `R3);
-        memory[7]  = `ASM(`ADD, `R2);
+        memory[7]  = `ASM(`SUB, `R2);
         memory[8]  = `ASM(`NOP, `R0);
         memory[9]  = `ASM(`NOP, `R0);
         memory[10] = `ASM(`NOP, `R0);

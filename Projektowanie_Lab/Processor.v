@@ -1,6 +1,6 @@
 `include "OpCodes.v"
 
-module Processor(input clk, input [7:0] r3, output [7:0] acc, output cy);
+module Processor(input clk, input [7:0] r3, output [7:0] acc, output cy, output [6:0] digit1, output [6:0] digit0);
     
     wire [(`ARG_WIDTH - 1):0] program_counter;
     wire [(`INSTRUCTION_WIDTH - 1):0] instruction;
@@ -16,6 +16,10 @@ module Processor(input clk, input [7:0] r3, output [7:0] acc, output cy);
     ID id(.instruction(instruction), .opcode(opcode), .reg_addr(reg_addr), .arg(argument), .st_ce(st_ce), .ld_ce(ld_ce), .cy_ce(cy_ce), .acc_ce(acc_ce));
     RF rf(.clk(clk), .ld_ce(ld_ce), .st_ce(st_ce), .acc(acc), .debug_reg(r3), .addr(reg_addr), .data(register));
     ALU alu(.clk(clk), .alu_ce(acc_ce), .cy_ce(cy_ce), .opcode(opcode), .register(register), .argument(argument), .acc(acc), .cy(cy), .jmp_addr_temp(jmp_addr), .jmp_ce_temp(jmp_ce));
+
+	 Hex_7seg_Verilog hex_segment1(.hex(program_counter / 10), .seg(digit1));
+	 Hex_7seg_Verilog hex_segment0(.hex(program_counter % 10), .seg(digit0));
+
 
     always @(posedge clk) begin
     end

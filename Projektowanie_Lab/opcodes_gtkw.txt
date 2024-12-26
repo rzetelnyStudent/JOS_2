@@ -7,3 +7,5 @@
 6 XOR
 7 NOP
 8 NOT
+9 JMP
+A JZ

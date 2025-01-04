@@ -1,9 +1,18 @@
 `include "OpCodes.v"
 
+// ALU implementation module
 module ALU(
-    input clk, input alu_ce, input cy_ce, input [(`OPCODE_WIDTH - 1):0] opcode, input [7:0] register, 
-    input [(`ARG_WIDTH - 1):0] argument,
-    output reg [7:0] acc, output reg cy, output reg [(`ARG_WIDTH - 1):0] jmp_addr_temp, output reg jmp_ce_temp);
+    input clk,      // Main clock signal
+    input alu_ce,   // ALU enable signal
+    input cy_ce,    // Carry-out enable signal
+    input [(`OPCODE_WIDTH - 1):0] opcode,       // Opcode input
+    input [7:0] register,                       // Selected Register input
+    input [(`ARG_WIDTH - 1):0] argument,        // Instruction argument input
+    output reg [7:0] acc,                       // Accumulator output
+    output reg cy,                              // Carry-out flag output 
+    output reg [(`ARG_WIDTH - 1):0] jmp_addr_temp,  // Jump address output (combinational) 
+    output reg jmp_ce_temp                      // Jump enable signal output (combinational)
+);
 
     reg [7:0] acc_temp;
     reg cy_temp;

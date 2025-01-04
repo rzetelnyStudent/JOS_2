@@ -1,4 +1,8 @@
-module Hex_7seg_Verilog(input [3:0] hex, output reg [6:0] seg);
+// Module to convert 4-bit hex to 7-segment display code
+module Hex_7seg_Verilog(
+	input [3:0] hex, 		// 4-bit hex input
+	output reg [6:0] seg	// 7-bit 7-segment display output
+);
 
 always @(*)
 	case(hex)

@@ -1,10 +1,11 @@
 `include "OpCodes.v"
 
+// Program Counter module
 module PC (
-    input CLK,        // Clock input
-    input pc_set,
-    input [(`ARG_WIDTH - 1):0] pc_set_addr,
-    output reg [(`ARG_WIDTH - 1):0] counter
+    input CLK,              // Main clock signal
+    input pc_set,           // Set the program counter to a specific address enable signal
+    input [(`ARG_WIDTH - 1):0] pc_set_addr,     // Address to set the program counter to
+    output reg [(`ARG_WIDTH - 1):0] counter     // Program counter current address output
 );
 
     // Initialize the counter to 0

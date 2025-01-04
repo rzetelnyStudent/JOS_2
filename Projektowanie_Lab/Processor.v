@@ -1,6 +1,14 @@
 `include "OpCodes.v"
 
-module Processor(input clk, input [7:0] r3, output [7:0] acc, output cy, output [6:0] digit1, output [6:0] digit0);
+// Processor implementation module
+module Processor(
+    input clk,              // Main clock signal
+    input [7:0] r3,         // Register R3 extracted as a debug input
+    output [7:0] acc,       // Accumulator output
+    output cy,              // Carry-out flag
+    output [6:0] digit1,    // Program counter display digit 1
+    output [6:0] digit0     // Program counter display digit 0
+);
     
     wire [(`ARG_WIDTH - 1):0] program_counter;
     wire [(`INSTRUCTION_WIDTH - 1):0] instruction;

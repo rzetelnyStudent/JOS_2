@@ -1,13 +1,15 @@
 `include "OpCodes.v"
 
+// Register File module
 module RF(
-    input clk,
-    input ld_ce,
-    input st_ce,
-    input [7:0] acc,
-    input [7:0] debug_reg, 
-    input [(`REG_ADDR_WIDTH - 1):0] addr, 
-    output [7:0] data);
+    input clk,              // Main clock signal
+    input ld_ce,            // Load enable signal
+    input st_ce,            // Store enable signal
+    input [7:0] acc,        // Accumulator input
+    input [7:0] debug_reg,  // Debug register (R3) input
+    input [(`REG_ADDR_WIDTH - 1):0] addr,  // Register address selector input
+    output [7:0] data
+);
 
     reg [7:0] registers [3:0];
 

@@ -1,6 +1,10 @@
 `include "OpCodes.v"
 
-module ROM (input [(`ARG_WIDTH - 1):0] address, output [(`INSTRUCTION_WIDTH - 1):0] data);
+// ROM memory module
+module ROM (
+    input [(`ARG_WIDTH - 1):0] address,         // Memory address input
+    output [(`INSTRUCTION_WIDTH - 1):0] data    // Memory data at selected address output
+);
 
     reg [(`INSTRUCTION_WIDTH - 1):0] memory [31:0];
 

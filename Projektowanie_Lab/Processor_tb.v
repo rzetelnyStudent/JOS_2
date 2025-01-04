@@ -1,7 +1,4 @@
-//`timescale 1ns / 100ps
-
-//`include OpCodes.v
-
+// Processor testbench module
 module Processor_tb;
 
 //Internal signals declarations:
@@ -12,17 +9,6 @@ wire cy;
 
 // Instantiate the Processor module
 Processor processor(.clk(clk), .r3(r3), .acc(acc), .cy(cy));
-
-// initial	begin
-// 	clk = 1'b0;
-// 	forever #5 clk = ~clk;
-// end
-
-// initial	begin
-// 	WAIT(800);
-// 	$display("@%d: Simulation completed.", $time);
-// 	$finish;
-// end
 
 initial begin
     $dumpfile("Processor_tb.vcd");
@@ -37,7 +23,7 @@ task CLK_CYCLE;
 endtask
 
 integer i;
-// Addition test
+
 initial begin
     clk = 1'b0;
 
@@ -46,7 +32,6 @@ initial begin
     for (i = 0; i < 32; i = i + 1) begin
         CLK_CYCLE;
     end
-    //assert
     $finish;
 end
 

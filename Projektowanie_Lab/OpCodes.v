@@ -3,17 +3,25 @@
 `define ARG_WIDTH 8
 `define INSTRUCTION_WIDTH (`OPCODE_WIDTH + `REG_ADDR_WIDTH + `ARG_WIDTH)
 
-`define ADD `OPCODE_WIDTH'd0
-`define SUB `OPCODE_WIDTH'd1
-`define LD  `OPCODE_WIDTH'd2
-`define ST  `OPCODE_WIDTH'd3
-`define AND `OPCODE_WIDTH'd4
-`define OR  `OPCODE_WIDTH'd5
-`define XOR `OPCODE_WIDTH'd6
-`define NOP `OPCODE_WIDTH'd7
-`define NOT `OPCODE_WIDTH'd8
-`define JMP `OPCODE_WIDTH'd9
-`define JZ  `OPCODE_WIDTH'd10
+// Instructions are stacked as follows:
+// |      OPCODE      | REG_ADDR |            ARG           |
+// |      4 bits      |  2 bits  |      8 bits (0-255)      |
+// Where OPCODE is the operation code to be performed, 
+// REG_ADDR is the address of the register in register file to be used,
+// ARG is the argument value to be used.
+// Different instructions are pre-defined to use REG_ADDR and/or ARG as follows
+// (ACC - Accumulator latched value, REG - Register, ARG - Argument): 
+`define ADD `OPCODE_WIDTH'd0    // ACC <= ACC + REG[REG_ADDR], Carry-out flag set if overflow
+`define SUB `OPCODE_WIDTH'd1    // ACC <= ACC - REG[REG_ADDR], Carry-out flag set if underflow
+`define LD  `OPCODE_WIDTH'd2    // ACC <= REG[REG_ADDR]
+`define ST  `OPCODE_WIDTH'd3    // REG[REG_ADDR] <= ACC
+`define AND `OPCODE_WIDTH'd4    // ACC <= ACC & REG[REG_ADDR]
+`define OR  `OPCODE_WIDTH'd5    // ACC <= ACC | REG[REG_ADDR]
+`define XOR `OPCODE_WIDTH'd6    // ACC <= ACC ^ REG[REG_ADDR]
+`define NOP `OPCODE_WIDTH'd7    // No operation
+`define NOT `OPCODE_WIDTH'd8    // ACC <= ~REG[REG_ADDR]
+`define JMP `OPCODE_WIDTH'd9    // Unconditional jump to ARG address
+`define JZ  `OPCODE_WIDTH'd10   // Jump to ARG address if ACC is zero
 
 `define R0 `REG_ADDR_WIDTH'd0
 `define R1 `REG_ADDR_WIDTH'd1

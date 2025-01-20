@@ -1,0 +1,9 @@
+1. ALU shall output latched 8 bit accumulator result and carry-out flag.
+2. ALU shall output 8 bit jump address and a flag indicating the jump should take place. 
+Theese outputs should be combinational. 
+They should be available at following clock rising edge.
+3. ALU shall react to clock rising edge.
+Calculation result (outputs: accumulator and carry-out flag) shall be available after every following rising edge of the clock signal.
+4. ALU shall execute commands according to their description in OpCodes.v file.
+5. CY flag shall be set when an overflow or underflow occurs during addition or subtraction.
+6. CY flag shall be cleared set, after next rising edge of the clock signal (if the next instruction doesn't invoke the flag).

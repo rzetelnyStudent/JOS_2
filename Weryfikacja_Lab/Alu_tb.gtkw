@@ -1,0 +1,20 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Thu Dec 26 17:05:54 2024
+[*]
+[dumpfile] "C:\Users\alert\repos\JOS_2\Projektowanie_Lab\Alu_tb.vcd"
+[dumpfile_mtime] "Thu Dec 26 17:04:35 2024"
+[dumpfile_size] 4588
+[savefile] "C:\Users\alert\repos\JOS_2\Projektowanie_Lab\Alu_tb.gtkw"
+[timestart] 80
+[size] 1280 657
+[pos] -1 -1
+*-4.921819 151 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] Processor_tb.
+[treeopen] Processor_tb.processor.
+[sst_width] 197
+[signals_width] 218
+[sst_expanded] 1
+[sst_vpaned_height] 173
+[pattern_trace] 1
+[pattern_trace] 0

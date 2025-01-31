@@ -1,34 +1,49 @@
 `include "enums.svh"
 `include "generator.sv"
 `include "scoreboard.sv"
+`include "model.sv"
 
 class environment;
-    generator gen;
-    scoreboard scb;
-
-function new();
-    gen = new();
-    scb = new();
-endfunction
-
-task run_tests(
-    output rst,                   // async reset
-    output clk,                   // clock
-    output data_src_t data_src,   // data source (?0 - mem, 01 - imm, 11 - reg)
-    output [7:0] immediate, // immediate value
-    output [7:0] reg_out,   // value from register
-    output [7:0] mem_out,   // value from memory
-    output [2:0] op,              // ALU operation
-    output ce_a,                  // clock-enable for accumulator and flags
-    output ce_cy                  // clock-enable for carry
-    );
-begin
-    //gen.run_test_add(rst, clk, data_src, immediate, reg_out, mem_out, op, ce_a, ce_cy);
   
-  rst = 0;
-  clk = 1;
+  virtual AluInterface aluInt;  
+  generator gen;
+  scoreboard scb;
+  Model model;
 
-end
-endtask
+  
+  function new(virtual AluInterface aluInt);
+    this.aluInt = aluInt;
+    gen = new(aluInt);
+    scb = new(aluInt);
+    model = new();
+  endfunction;
+  
+  task GetDataTest( 
+    input [2:0] op,
+    output cin,
+    output [7:0] lhs,
+    output [7:0] rhs,
+    output [7:0] outp,
+    output cout,
+    output zeroFlag);
+    begin
+      gen.GetDataTest(rhs);
+      model.DoOperation(op, cin, lhs, rhs, outp, cout, zeroFlag);
+    end
+  endtask
+  
+  task CheckData(
+      input [2:0] op,
+      input cin,    
+      input [1:0] src, 
+      input [7:0] lhs,
+      input [7:0] rhs,
+      input [7:0] outp,
+      input cout,
+      input zeroFlag);
+    begin
+      scb.CheckData(op, cin, src, lhs, rhs, outp, cout, zeroFlag);
+    end
+  endtask
 
 endclass

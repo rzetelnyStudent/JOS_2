@@ -1,20 +1,45 @@
 [*]
 [*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
-[*] Thu Dec 26 17:05:54 2024
+[*] Wed Jan 29 17:30:59 2025
 [*]
-[dumpfile] "C:\Users\alert\repos\JOS_2\Projektowanie_Lab\Alu_tb.vcd"
-[dumpfile_mtime] "Thu Dec 26 17:04:35 2024"
-[dumpfile_size] 4588
-[savefile] "C:\Users\alert\repos\JOS_2\Projektowanie_Lab\Alu_tb.gtkw"
-[timestart] 80
+[dumpfile] "C:\Users\alert\repos\JOS_2\Weryfikacja_Lab\Alu_tb.vcd"
+[dumpfile_mtime] "Wed Jan 29 17:27:10 2025"
+[dumpfile_size] 2790
+[savefile] "C:\Users\alert\repos\JOS_2\Weryfikacja_Lab\Alu_tb.gtkw"
+[timestart] 0
 [size] 1280 657
 [pos] -1 -1
 *-4.921819 151 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
-[treeopen] Processor_tb.
-[treeopen] Processor_tb.processor.
+[treeopen] Alu_tb.
 [sst_width] 197
 [signals_width] 218
 [sst_expanded] 1
 [sst_vpaned_height] 173
+@420
+Alu_tb.alu_dut.WIDTH
+@22
+Alu_tb.alu_dut.acc_v[7:0]
+Alu_tb.alu_dut.alu_in[7:0]
+Alu_tb.alu_dut.alu_out[7:0]
+@28
+Alu_tb.alu_dut.ce_a
+Alu_tb.alu_dut.ce_cy
+Alu_tb.alu_dut.clk
+Alu_tb.alu_dut.data_src[1:0]
+Alu_tb.alu_dut.flag_cy
+Alu_tb.alu_dut.flag_o
+Alu_tb.alu_dut.flag_s
+Alu_tb.alu_dut.flag_z
+@22
+Alu_tb.alu_dut.immediate[7:0]
+Alu_tb.alu_dut.mem_out[7:0]
+@28
+Alu_tb.alu_dut.new_cy
+Alu_tb.alu_dut.new_ov
+Alu_tb.alu_dut.op[2:0]
+@22
+Alu_tb.alu_dut.reg_out[7:0]
+@28
+Alu_tb.alu_dut.rst
 [pattern_trace] 1
 [pattern_trace] 0

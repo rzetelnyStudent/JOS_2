@@ -1,3 +1,6 @@
+`ifndef ENVIRONMENT_SV
+`define ENVIRONMENT_SV
+
 `include "enums.svh"
 `include "generator.sv"
 `include "scoreboard.sv"
@@ -47,3 +50,5 @@ class environment;
   endtask
 
 endclass
+
+`endif

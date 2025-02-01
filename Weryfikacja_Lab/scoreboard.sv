@@ -12,7 +12,7 @@ class scoreboard;
   task MyAssert(string var_name, bit [31:0] actual, bit [31:0] expected);
       begin
         if (expected === actual) begin
-            $display("%s: match", var_name);
+          $display("%s: match: %0d", var_name, actual);
         end else begin
             $display("%s: fail, actual: %0d, expected: %0d", var_name, actual, expected);
         end
@@ -34,7 +34,7 @@ class scoreboard;
     end
   endfunction
   
-  task displayTestData(input [2:0] opcode, input [1:0] src, input cin, input acc, input rhs);
+  task displayTestData(input [2:0] opcode, input [1:0] src, input cin, input [7:0] acc, input [7:0] rhs);
     begin
       case (src)
         2'b00: $display("acc: %d, MEM_ADDR: %d, cin: %d, op: %s", acc, rhs, cin, displayInstructionName(opcode));

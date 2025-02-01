@@ -1,14 +1,16 @@
 `include "interface.sv"
 
+// Class responsible for displaying test data and checking the results
 class scoreboard;
   
   virtual AluInterface aluInt;
   
+  // Constructor for the scoreboard class
   function new(virtual AluInterface aluInt);
     this.aluInt = aluInt;
   endfunction;
   
-      // Format function
+  // Task to display the test data and information if they match or not. Displays the var_name actual and expected values.
   task MyAssert(string var_name, bit [31:0] actual, bit [31:0] expected);
       begin
         if (expected === actual) begin
@@ -19,6 +21,7 @@ class scoreboard;
       end
     endtask
   
+  // Function to display the instruction name mathematical symbol based on the opcode.
   function string displayInstructionName(input [2:0] opcode);
     begin
       case (opcode)
@@ -34,6 +37,7 @@ class scoreboard;
     end
   endfunction
   
+  // Task to display the input test data based on the opcode and source.
   task displayTestData(input [2:0] opcode, input [1:0] src, input cin, input [7:0] acc, input [7:0] rhs);
     begin
       case (src)
@@ -46,7 +50,7 @@ class scoreboard;
     end
   endtask
   
-
+  // Task to check the data. Compares the actual and expected values. Displays the input test data and the results.
   task CheckData(      
       input [2:0] op,
       input cin,    

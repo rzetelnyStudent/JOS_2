@@ -1,11 +1,13 @@
 `include "enums.svh"
 `include "OpCodes.svh"
 
+// Class responsible for modelling ALU operations
 class Model;
   
   logic [7:0] acc = 0;
   logic cin = 0;
   
+  // Task to perform ALU operation, based on the opcode. Updates the output, carry-out, and zero flag.
   task DoOperation(
     input [2:0] op,
     output cin_out,
